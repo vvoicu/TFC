@@ -1,0 +1,17 @@
+FROM maven:slim
+
+
+#ARG webdriver.remote.url=http://172.16.2.35:4444/wd/hub
+ARG testSuite=TC001WikiSearchTest
+
+COPY . /app
+
+WORKDIR /app/
+
+RUN mvn -T 8 clean install -DskipTests \
+	&& mvn -DskipTests=true -Dmaven.test.skip=true install dependency:copy-dependencies 
+
+ENTRYPOINT ["mvn"]
+
+
+#ENTRYPOINT ["mvn", "-DtestSuite=${testSuite}","-DconfigFile=stage", "-Dwebdriver.remote.url=${webdriver.remote.url}", "-Dwebdriver.driver=chrome", "verify"]

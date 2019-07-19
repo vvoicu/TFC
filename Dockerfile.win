@@ -1,0 +1,14 @@
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
+
+COPY . /app/
+
+WORKDIR /app/
+
+RUN powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+RUN choco install jdk8 -y \
+	&& choco install maven -y \
+	&& refreshenv
+
+ENTRYPOINT ["run.cmd"]
+
