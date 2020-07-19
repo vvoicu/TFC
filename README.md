@@ -475,7 +475,7 @@ docker run timage -Pjmeter install
 
 The tools FieldGenerator class uses the ConfigUtils to read the alphabetFile property and see what file is set for read. Then it will apply the alphabet to the random length generator to provide a random string with desired alphabet.
 
-Note that if you want the property to be picked up from the command line please comment out the 'System.setProperty("dictionaryFile", "local");' in the test.
+Note that if you want the property to be picked up from the command line please comment out the 'System.setProperty("alphabetFile", "local");' in the test.
 
 english char support
 ```
@@ -487,6 +487,12 @@ chyrilic char support
 mvn -Pdefault -DtestSuite=FieldGenerateDataTest verify -DconfigFile=local -DalphabetFile=slav
 ```
 
+files are located under ```src/test/resources/configs```
+
+you may add your alphabet files here. There is demo suport for the following languages.
+china-alphabet.properties 
+slav-alphabet.properties
+local-alphabet.properties (latin)
 
 
 # 3. Infrastructure Setup
