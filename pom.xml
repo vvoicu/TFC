@@ -296,30 +296,83 @@
 		<profile>
 			<id>fatjar</id>
 			<build>
-				<finalName>tfc-solution</finalName>
 				<plugins>
-
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-surefire-plugin</artifactId>
+						<version>2.19.1</version>
+						<configuration>
+							<skip>true</skip>
+						</configuration>
+					</plugin>
+					<plugin>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<version>2.19.1</version>
+						<configuration>
+							<includes>
+								<include>**/${testSuite}.*</include>
+							</includes>
+							<argLine>-Xmx512m</argLine>
+							<systemPropertyVariables>
+								<!-- <webdriver.remote.url>${webdriver.remote.url}</webdriver.remote.url> -->
+								<webdriver.driver>${webdriver.driver}</webdriver.driver>
+								<webdriver.chrome.driver>${chromeDriverPath}</webdriver.chrome.driver>
+								<webdriver.firefox.driver>${firefoxDriverPath}</webdriver.firefox.driver>
+								<webdriver.gecko.driver>${firefoxDriverPath}</webdriver.gecko.driver>
+							</systemPropertyVariables>
+						</configuration>
+						<executions>
+							<execution>
+								<goals>
+									<goal>integration-test</goal>
+									<goal>verify</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
 						<artifactId>maven-compiler-plugin</artifactId>
-						<version>3.6.1</version>
+						<version>3.2</version>
 						<configuration>
 							<source>1.8</source>
 							<target>1.8</target>
 						</configuration>
 					</plugin>
+					<plugin>
+						<groupId>net.serenity-bdd.maven.plugins</groupId>
+						<artifactId>serenity-maven-plugin</artifactId>
+						<version>${serenity.version}</version>
+						<executions>
+							<execution>
+								<id>serenity-reports</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>aggregate</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
 
 					<plugin>
 						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-assembly-plugin</artifactId>
-						<version>3.1.1</version>
-
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.3</version>
 						<configuration>
-							<descriptorRefs>
-								<descriptorRef>fatjar</descriptorRef>
-							</descriptorRefs>
+							<source>1.8</source>
+							<target>1.8</target>
 						</configuration>
-
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-assembly-plugin</artifactId>
+						<version>3.0.0</version>
+						<configuration>
+							<appendAssemblyId>false</appendAssemblyId>
+							<descriptors>
+								<descriptor>src/test/resources/assembly.xml</descriptor>
+							</descriptors>
+						</configuration>
 						<executions>
 							<execution>
 								<id>make-assembly</id>
@@ -327,9 +380,20 @@
 								<goals>
 									<goal>single</goal>
 								</goals>
+								<configuration>
+									<archive>
+										<manifest>
+											<mainClass>
+												com.main.SmokeTestMain
+											</mainClass>
+										</manifest>
+									</archive>
+									<descriptorRefs>
+										<descriptorRef>jar-with-dependencies</descriptorRef>
+									</descriptorRefs>
+								</configuration>
 							</execution>
 						</executions>
-
 					</plugin>
 				</plugins>
 			</build>
