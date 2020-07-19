@@ -22,7 +22,7 @@
 		<testSuite>RegressionSuite</testSuite>
 		<!-- <testSuite>TC001WikiSearchTest</testSuite> -->
 		<configFile>local</configFile>
-		<dictionaryFile>local</dictionaryFile>
+		<alphabetFile>local</alphabetFile>
 		<webdriver.driver>chrome</webdriver.driver>
 		<serenity.cucumber.version>1.9.43</serenity.cucumber.version>
 		<serenity.version>2.0.60</serenity.version>

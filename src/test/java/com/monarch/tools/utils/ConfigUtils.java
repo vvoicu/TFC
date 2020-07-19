@@ -22,7 +22,7 @@ public class ConfigUtils {
 
 	// local-dictionary.properties
 	public static String getDictionary(String propertyKey) {
-		return getConfigData(propertyKey, "dictionaryFile", "-dictionary.properties");
+		return getConfigData(propertyKey, "alphabetFile", "-alphabet.properties");
 	}
 
 	private static String getConfigData(String propertyKey, String systemPropertyName, String propertySuffix) {
