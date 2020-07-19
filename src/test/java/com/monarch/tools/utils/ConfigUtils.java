@@ -17,15 +17,15 @@ public class ConfigUtils {
 	}
 
 	public static String getProperty(String propertyKey) {
-		return getData(propertyKey, "configFile", "-config.properties");
+		return getConfigData(propertyKey, "configFile", "-config.properties");
 	}
 
 	// local-dictionary.properties
 	public static String getDictionary(String propertyKey) {
-		return getData(propertyKey, "dictionaryFile", "-dictionary.properties");
+		return getConfigData(propertyKey, "dictionaryFile", "-dictionary.properties");
 	}
 
-	private static String getData(String propertyKey, String systemPropertyName, String propertySuffix) {
+	private static String getConfigData(String propertyKey, String systemPropertyName, String propertySuffix) {
 		String result = "";
 		String configFile = System.getProperty(systemPropertyName) == null ? "local"
 				: System.getProperty(systemPropertyName);
