@@ -22,7 +22,7 @@ For the windows platform we have TWO WAYS of configuring the environment. We wil
 ```
 powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
-Go to chocolatey page, download and install the kit.
+Run the command in powershell to install chocolatey.
 
 After chocolatey has been setup, open a terminal and run the commands:
 
