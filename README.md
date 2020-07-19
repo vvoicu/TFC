@@ -20,7 +20,7 @@ For the windows platform we have TWO WAYS of configuring the environment. We wil
 #### I. SETUP WITH PACKAGE MANAGER - Chocolatey (quick and easy setup)
 ---
 ```
-https://chocolatey.org/
+powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 ```
 Go to chocolatey page, download and install the kit.
 
