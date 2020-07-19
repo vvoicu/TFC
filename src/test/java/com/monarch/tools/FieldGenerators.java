@@ -17,7 +17,7 @@ public class FieldGenerators {
 			characters = ConfigUtils.getDictionary("ALPHA_CAPS");
 			break;
 		case ALPHA:
-			characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+			characters = ConfigUtils.getDictionary("ALPHA");
 			break;
 		case ALPHANUMERIC:
 			characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";

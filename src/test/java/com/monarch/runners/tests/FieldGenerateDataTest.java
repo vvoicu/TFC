@@ -14,7 +14,7 @@ public class FieldGenerateDataTest {
 	@Test
 	public void generateEngDataTest() {
 		System.setProperty("dictionaryFile", "local");
-		String result = FieldGenerators.generateRandomString(20, Mode.ALPHA_CAPS);
+		String result = FieldGenerators.generateRandomString(20, Mode.ALPHA);
 		System.out.println("EngData: " + result);
 		Assert.assertTrue("Expected size is 20, actual: " + result.length(), result.length() == 20);
 	}
