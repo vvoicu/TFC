@@ -34,7 +34,7 @@ public class StringUtils {
 	public static void checkForKillSwitch(String clientRequestBody) {
 		logger.info("---- Checking for Kill Switch key ----");
 		if (clientRequestBody.contains(Constants.VERTX_KILL_SWITCH))
-			FileUtils.writeToFile(Constants.TEMP_RESOURCES_PATH + Constants.BROKER_KILL_FILE, "true");
+			FileUtils.writeToFile(Constants.TEMP_RESOURCES_PATH + Constants.BROKER_KILL_FILE, "true - data: " + clientRequestBody);
 	}
 
 	/**

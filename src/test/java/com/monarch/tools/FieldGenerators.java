@@ -1,5 +1,7 @@
 package com.monarch.tools;
 
+import com.monarch.tools.utils.ConfigUtils;
+
 public class FieldGenerators {
 
 	public static enum Mode {
@@ -12,7 +14,7 @@ public class FieldGenerators {
 
 		switch (mode) {
 		case ALPHA_CAPS:
-			characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+			characters = ConfigUtils.getDictionary("ALPHA_CAPS");
 			break;
 		case ALPHA:
 			characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";

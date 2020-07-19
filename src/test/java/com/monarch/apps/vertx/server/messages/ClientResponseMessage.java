@@ -15,6 +15,15 @@ public class ClientResponseMessage {
 		this.receivedPayload = receivedPayload;
 	}
 
+	public void setNanoId(String nanoTime) {
+		this.nanoId = nanoTime;
+	}
+
+	public String getNanoId() {
+		return nanoId;
+	}
+
+	
 	public String toJson() {
 
 		String result = "{CANNOT CONVERT PAYLOAD TO JSON}";
@@ -32,12 +41,5 @@ public class ClientResponseMessage {
 		return result;
 	}
 
-	public void setNanoId(String nanoTime) {
-		this.nanoId = nanoTime;
-	}
-
-	public String getNanoId() {
-		return nanoId;
-	}
 
 }

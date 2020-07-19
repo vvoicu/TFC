@@ -11,17 +11,27 @@ public class ConfigUtils {
 
 	private static Properties prop = new Properties();
 	private static InputStream input = null;
-	
+
 	public static void main(String[] args) {
 		System.out.println(getProperty("BASE_URL_UI_WIKI"));
 	}
 
 	public static String getProperty(String propertyKey) {
+		return getData(propertyKey, "configFile", "-config.properties");
+	}
+
+	// local-dictionary.properties
+	public static String getDictionary(String propertyKey) {
+		return getData(propertyKey, "dictionaryFile", "-dictionary.properties");
+	}
+
+	private static String getData(String propertyKey, String systemPropertyName, String propertySuffix) {
 		String result = "";
-		String configFile = System.getProperty("configFile") == null ? "local" : System.getProperty("configFile");
+		String configFile = System.getProperty(systemPropertyName) == null ? "local"
+				: System.getProperty(systemPropertyName);
 		try {
 //			System.out.println(Constants.CONFIG_RESOURCES_PATH + configFile + "-config.properties");
-			input = new FileInputStream(Constants.CONFIG_RESOURCES_PATH + configFile + "-config.properties");
+			input = new FileInputStream(Constants.CONFIG_RESOURCES_PATH + configFile + propertySuffix);
 			prop.load(input);
 			result = prop.getProperty(propertyKey);
 		} catch (IOException ex) {
@@ -37,4 +47,5 @@ public class ConfigUtils {
 		}
 		return result;
 	}
+
 }
