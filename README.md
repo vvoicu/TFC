@@ -134,6 +134,12 @@ Run command for Serenity + Selenium Tests <br>
 mvn -Pdefault -DconfigFile=local -DtestSuite=TC002ApiReqresGetTest -Dwebdriver.driver=firefox verify
 ```
 
+Run fat jar with dependencies command. No main implemented yet <br>
+
+```
+mvn clean install -Pfatjar
+```
+
 Notes:  <br>
 
 testSuite - property can be either test or testsuite class <br>
