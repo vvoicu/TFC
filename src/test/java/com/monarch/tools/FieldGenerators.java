@@ -14,13 +14,16 @@ public class FieldGenerators {
 
 		switch (mode) {
 		case ALPHA_CAPS:
-			characters = ConfigUtils.getDictionary("ALPHA_CAPS");
+			characters = ConfigUtils.getDictionary("ALPHA_CAPS") != null  ? ConfigUtils.getDictionary("ALPHA_CAPS")
+					: "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 			break;
 		case ALPHA:
-			characters = ConfigUtils.getDictionary("ALPHA");
+			characters = ConfigUtils.getDictionary("ALPHA") != null  ? ConfigUtils.getDictionary("ALPHA")
+					: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 			break;
 		case ALPHANUMERIC:
-			characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
+			characters = ConfigUtils.getDictionary("ALPHANUMERIC") != null ? ConfigUtils.getDictionary("ALPHANUMERIC")
+					: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890";
 			break;
 		case NUMERIC:
 			characters = "1234567890";
