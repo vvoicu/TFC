@@ -408,7 +408,7 @@ mvn -Pdefault verify -Dcucumber.options="--tags @debug1 --tags @debug2"
 
 ## 2.8 Server Creation Test (Vertx)
 
-When you intend to test a certain service, sometimes it might be hard to create a running server with some business login to make the application under test behave in some desired manner. This is where Vertx comes in. We can create lightweight services (client or server) with vertx, since it is a framework build for microservice development.
+When you intend to test a certain service, sometimes it might be hard to create a running server with some business login to make the application under test behave in some desired manner. This is where Vertx comes in. We can create lightweight services (client or server) with vertx, since it is a light toolkit for building a wide range of reactive microservices.
 
 Test Scenario:
 
