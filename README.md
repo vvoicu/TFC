@@ -1,6 +1,8 @@
 # TEST FRAMEWORK COLLECTION
 
-Container based test framework for application container migrations. The idea is to take the solution and be able to build a fatjar (now is about 100 mb) that you just copy to your containers and just run the suites. Fast run (pre compiled) test solution for container use. (!!!fat jar main class not currently implemented!!!).
+Container based test framework for application container migrations. The idea is to take the solution and be able to build a fatjar (now is about 100 mb) that you just copy to your containers and just run the suites. Fast run (pre compiled) test solution for container use. 
+
+Issues: config files folder structure is not yet set to support the use from jar. Will need to rewrite but the base code for the main class and the jar with dependencies build works.
 
 
 # 1. Environment Setup
