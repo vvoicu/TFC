@@ -6,10 +6,10 @@ import java.io.IOException;
 import org.apache.commons.lang3.SystemUtils;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
-import org.junit.runners.Suite;
+import org.junit.runners.JUnit4;
 import org.junit.runners.model.InitializationError;
 
-import com.monarch.runners.suites.RegressionSuite;
+import com.monarch.runners.tests.FieldGenerateDataTest;
 
 import net.serenitybdd.core.SerenitySystemProperties;
 import net.thucydides.core.ThucydidesSystemProperty;
@@ -38,7 +38,8 @@ public class SmokeTestMain {
 		sp.setValue(ThucydidesSystemProperty.DRIVER, "chrome");
 		sp.setValue(ThucydidesSystemProperty.WEBDRIVER_CHROME_DRIVER, chromeDriverPath);
 		@SuppressWarnings("unused")
-		Result result = junit.run(Suite.class, RegressionSuite.class);
+		Result result = junit.run(JUnit4.class, FieldGenerateDataTest.class);
+//		Result result = junit.run(Suite.class, RegressionSuite.class);
 		HtmlAggregateStoryReporter tfcReports = new HtmlAggregateStoryReporter("TFC-aggregator");
 		
 		File resultFolder = new File("./target/site/serenity");

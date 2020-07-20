@@ -1,5 +1,6 @@
 package com.monarch.tools.utils;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,21 +18,22 @@ public class ConfigUtils {
 	}
 
 	public static String getProperty(String propertyKey) {
-		return getConfigData(propertyKey, "configFile", "-config.properties");
+		return getConfigData(propertyKey, "", "configFile", "-config.properties");
 	}
 
 	// local-dictionary.properties
 	public static String getDictionary(String propertyKey) {
-		return getConfigData(propertyKey, "alphabetFile", "-alphabet.properties");
+		return getConfigData(propertyKey, "alphabets" + File.separator, "alphabetFile", "-alphabet.properties");
 	}
 
-	private static String getConfigData(String propertyKey, String systemPropertyName, String propertySuffix) {
+	private static String getConfigData(String propertyKey, String partialPath, String systemPropertyName,
+			String propertySuffix) {
 		String result = "";
 		String configFile = System.getProperty(systemPropertyName) == null ? "local"
 				: System.getProperty(systemPropertyName);
 		try {
 //			System.out.println(Constants.CONFIG_RESOURCES_PATH + configFile + "-config.properties");
-			input = new FileInputStream(Constants.CONFIG_RESOURCES_PATH + configFile + propertySuffix);
+			input = new FileInputStream(Constants.CONFIG_RESOURCES_PATH + partialPath + configFile + propertySuffix);
 			prop.load(input);
 			result = prop.getProperty(propertyKey);
 		} catch (IOException ex) {
