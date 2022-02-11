@@ -16,7 +16,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
-		<vertx.dependency.version>3.6.0</vertx.dependency.version>
+		<vertx.dependency.version>3.9.4</vertx.dependency.version>
 		<!-- <serenity.version>1.8.3</serenity.version> -->
 		<!-- <webdriver.remote.url>http://127.0.0.1:4444/wd/hub</webdriver.remote.url> -->
 		<testSuite>RegressionSuite</testSuite>
